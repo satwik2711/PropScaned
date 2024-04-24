@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Page</title>
+</head>
+<body>
+    <button onclick="sendLocation()">Get Location</button>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function sendLocation() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                
+                $.ajax({
+                    url: '/api/location/',
+                    method: 'GET',
+                    data: {
+                        latitude: latitude,
+                        longitude: longitude
+                    },
+                    success: function(response) {
+                        console.log(response.message);
+                        // Handle the response as needed
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                        // Handle the error
+                    }
+                });
+            });
+        }
+        
+          
+    </script>
+</body>
+</html>

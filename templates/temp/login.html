@@ -1,0 +1,36 @@
+{% block content %}
+
+
+
+<div class="container mt-5 pt-4">
+    
+    <div class="col-6 mx-auto" i>
+        <h3 class="text-center">Login</h3>
+        <form method="post" id="formOne">
+            {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-12">
+                    <input type="text" placeholder="Mobile" class="form-control" name="mobile" id="" value={{mobile}}>
+                </div>
+            </div>
+           
+
+            <button class="btn btn-primary" name="otp_btn">Send otp</button>
+            <div class="row">
+                <div class="form-group col-12">
+                    <input type="text" placeholder="OTP" class="form-control" name="otp" id="">
+                </div>
+            </div>
+            <button class="btn btn-primary" name="sub_btn">Submit</button>
+            <p>Don't have account <a href="{% url 'register_broker' %}">Register</a></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

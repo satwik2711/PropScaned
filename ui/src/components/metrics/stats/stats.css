@@ -1,0 +1,23 @@
+.stat {
+    background: radial-gradient(90.83% 90.83% at 50% 50%, rgba(232, 249, 253, 0.38) 0%, rgba(232, 249, 253, 0.38) 100%);
+    border-radius: 16px;
+}
+
+.stat-container{
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.stat-img{
+    padding: 20px 12px;
+}
+
+.stat-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 16px;
+    text-align: center;
+    color: #092C4C;
+}

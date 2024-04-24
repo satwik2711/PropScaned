@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Propscan</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-messaging.js"></script>
+  </head>
+  <body>
+    Hi {{current_user}} <br>
+    Propscan home screen <br><br><br><br>
+   
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCbZ5pd8tS8XDWFKUaH6cQBrYZLx436Yzk",
+            authDomain: "propscan-7362e.firebaseapp.com",
+            projectId: "propscan-7362e",
+            storageBucket: "propscan-7362e.appspot.com",
+            messagingSenderId: "700143419070",
+            appId: "1:700143419070:web:0f636a8a8916a30a7168ef",
+            measurementId: "G-TR7KJRS4RW"
+          };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+      
+        const messaging = firebase.messaging();
+        console.log(messaging.getToken())
+        messaging.getToken({ vapidKey: 'BFH1XwSjULeCn8f6NKUVqyeNUY3blyrCtjKCalcfb2p4vVA2a_e5EzP2MT022gHJR9xIOYGgd8cjY-DTWhzVDMs' }).then((currentToken) => {
+        if (currentToken) {
+          
+          console.log(currentToken)
+        } else {
+          console.log('No registration token available. Request permission to generate one.');
+       
+        }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+      });
+      
+      
+        messaging
+         .requestPermission()
+         .then(function () {
+        console.log("Notification permission granted.");
+         return messaging.getToken()
+       })
+       .catch(function (err) {
+       console.log("Unable to get permission to notify.", err);
+     });
+    
+    
+      messaging.onMessage((payload) => {
+      console.log('Message received. ', payload);
+     
+    });
+    
+    
+    
+    </script>
+  </body>
+</html>

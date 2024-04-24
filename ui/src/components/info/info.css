@@ -1,0 +1,31 @@
+.info-banner {
+    background-color: #092C4C;
+    border-radius: 8px;
+    width: 100%;
+    color: "white";
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-img {
+    padding: 2px 10px;
+    width: 25vw;
+}
+
+.info-text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+.info-subtext {
+    font-weight: 400;
+}
